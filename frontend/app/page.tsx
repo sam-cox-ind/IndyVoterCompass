@@ -53,12 +53,8 @@ export default function Home() {
       <h1 className="text-2xl font-bold mb-4">Indiana Voting Data</h1>
 
       <div className="bg-gray-100 p-4 rounded mb-6">
-        <p>
-          <strong>Year:</strong> {data.year}
-        </p>
-        <p>
-          <strong>State:</strong> {data.state}
-        </p>
+        <p><strong>Year:</strong> {data.year}</p>
+        <p><strong>State:</strong> {data.state}</p>
 
         <ul className="mt-2">
           {data.results.map((result, index) => (
