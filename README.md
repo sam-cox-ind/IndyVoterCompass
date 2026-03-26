@@ -18,8 +18,5 @@ Indy Voter Compass is a tool designed to help independent voters navigate politi
 ## Contributing
 Contributions are welcome. Please follow the project's coding standards and submit pull requests for review.
 
-## License
-[Specify your license here]
-
 ## Support
 For issues or questions, please open a GitHub issue.
