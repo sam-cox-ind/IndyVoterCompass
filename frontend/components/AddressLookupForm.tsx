@@ -37,7 +37,7 @@ export default function AddressLookupForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="street" className="mb-1 block text-sm font-medium">
+        <label htmlFor="street" className="input-label">
           Street address
         </label>
         <input
@@ -46,13 +46,13 @@ export default function AddressLookupForm() {
           placeholder="123 Main St"
           value={street}
           onChange={(e) => setStreet(e.target.value)}
-          className="w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 outline-none transition focus:border-black"
+          className="input-field"
         />
       </div>
 
       <div className="grid gap-4 md:grid-cols-[1fr_110px_140px]">
         <div>
-          <label htmlFor="city" className="mb-1 block text-sm font-medium">
+          <label htmlFor="city" className="input-label">
             City
           </label>
           <input
@@ -61,12 +61,12 @@ export default function AddressLookupForm() {
             placeholder="Indianapolis"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            className="w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 outline-none transition focus:border-black"
+            className="input-field"
           />
         </div>
 
         <div>
-          <label htmlFor="state" className="mb-1 block text-sm font-medium">
+          <label htmlFor="state" className="input-label">
             State
           </label>
           <input
@@ -76,12 +76,12 @@ export default function AddressLookupForm() {
             value={state}
             onChange={(e) => setState(e.target.value.toUpperCase())}
             maxLength={2}
-            className="w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 outline-none transition focus:border-black"
+            className="input-field"
           />
         </div>
 
         <div>
-          <label htmlFor="zip" className="mb-1 block text-sm font-medium">
+          <label htmlFor="zip" className="input-label">
             ZIP
           </label>
           <input
@@ -90,22 +90,18 @@ export default function AddressLookupForm() {
             placeholder="46204"
             value={zip}
             onChange={(e) => setZip(e.target.value)}
-            className="w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 outline-none transition focus:border-black"
+            className="input-field"
           />
         </div>
       </div>
 
-      {error ? <p className="text-sm text-red-600">{error}</p> : null}
+      {error ? <p className="text-sm font-medium text-red-600">{error}</p> : null}
 
-      <button
-        type="submit"
-        disabled={loading}
-        className="w-full rounded-lg bg-black px-4 py-3 font-medium text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-400"
-      >
+      <button type="submit" disabled={loading} className="primary-button w-full">
         {loading ? "Loading your ballot..." : "See My Ballot"}
       </button>
 
-      <p className="text-xs text-neutral-500">
+      <p className="fine-print">
         This is an early version of the lookup flow. The results page can be
         wired to your backend next.
       </p>
