@@ -102,8 +102,7 @@ export default function AddressLookupForm() {
       </button>
 
       <p className="fine-print">
-        This is an early version of the lookup flow. The results page can be
-        wired to your backend next.
+        This is an early version of the lookup flow. 
       </p>
     </form>
   );
