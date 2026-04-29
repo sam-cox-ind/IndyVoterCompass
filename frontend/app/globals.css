@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
 :root {
   --background: #f8fafc;
@@ -71,4 +71,273 @@ select {
       radial-gradient(circle at top left, rgba(59, 130, 246, 0.08), transparent 38%),
       linear-gradient(to bottom, #f8fafc, #f1f5f9 55%, #eef2f7);
   }
+} */
+
+@import "tailwindcss";
+
+/* 
+  Indy Voter Compass Theme
+  Civic, clear, and modern.
+  Main palette: blue, yellow, white, and black.
+*/
+
+:root {
+  /* Core colors */
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-soft: #f1f5f9;
+
+  /* Civic palette */
+  --color-blue: #1d4ed8;
+  --color-blue-dark: #0f245c;
+  --color-blue-deep: #081a3a;
+  --color-blue-soft: #dbeafe;
+
+  --color-yellow: #facc15;
+  --color-yellow-soft: #fef3c7;
+  --color-yellow-dark: #a16207;
+
+  --color-black: #020617;
+  --color-white: #ffffff;
+
+  /* Text */
+  --color-text: #020617;
+  --color-muted: #64748b;
+  --color-border: #dbe1ea;
+
+  /* Effects */
+  --shadow-soft: 0 12px 30px rgba(2, 6, 23, 0.08);
+  --shadow-medium: 0 18px 45px rgba(2, 6, 23, 0.14);
+
+  --radius-card: 1.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Reusable layout helpers */
+
+.ivc-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* Backgrounds */
+
+.ivc-page-bg {
+  background:
+    radial-gradient(circle at top left, rgba(29, 78, 216, 0.13), transparent 32rem),
+    radial-gradient(circle at top right, rgba(250, 204, 21, 0.16), transparent 30rem),
+    var(--color-background);
+}
+
+.ivc-hero-bg {
+  background:
+    radial-gradient(circle at top right, rgba(250, 204, 21, 0.24), transparent 24rem),
+    linear-gradient(135deg, var(--color-blue-deep), var(--color-blue));
+  color: var(--color-white);
+}
+
+.ivc-section-white {
+  background: var(--color-surface);
+}
+
+.ivc-section-soft {
+  background:
+    linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+/* Cards */
+
+.ivc-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.ivc-card-soft {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background:
+    linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+.ivc-hero-card {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, 0.97);
+  color: var(--color-text);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Navbar */
+
+.ivc-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(219, 225, 234, 0.9);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+}
+
+.ivc-logo {
+  color: var(--color-black);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.ivc-logo-accent {
+  color: var(--color-blue);
+}
+
+.ivc-nav-link {
+  color: var(--color-muted);
+  transition: color 150ms ease;
+}
+
+.ivc-nav-link:hover {
+  color: var(--color-blue);
+}
+
+/* Buttons */
+
+.ivc-button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--color-blue);
+  color: var(--color-white);
+  font-weight: 700;
+  transition:
+    transform 150ms ease,
+    background 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.ivc-button-primary:hover {
+  background: #1e40af;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(29, 78, 216, 0.24);
+}
+
+.ivc-button-yellow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--color-yellow);
+  color: var(--color-black);
+  font-weight: 800;
+  transition:
+    transform 150ms ease,
+    background 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.ivc-button-yellow:hover {
+  background: #eab308;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(250, 204, 21, 0.28);
+}
+
+.ivc-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-black);
+  font-weight: 700;
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.ivc-button-secondary:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-blue);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Badges */
+
+.ivc-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+  padding: 0.5rem 0.9rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.ivc-badge-blue {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--color-blue-soft);
+  color: var(--color-blue);
+  padding: 0.45rem 0.8rem;
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+.ivc-badge-yellow {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--color-yellow-soft);
+  color: var(--color-yellow-dark);
+  padding: 0.45rem 0.8rem;
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+.ivc-badge-dark {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: 0.45rem 0.8rem;
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+/* Text helpers */
+
+.ivc-eyebrow {
+  color: var(--color-blue);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ivc-eyebrow-light {
+  color: var(--color-yellow);
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ivc-muted {
+  color: var(--color-muted);
 }
