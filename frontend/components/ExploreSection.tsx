@@ -1,16 +1,16 @@
 const exploreItems = [
-  {
-    title: "Election Data",
-    description:
-      "Explore past election results and understand how different areas have voted over time.",
-    href: "/election-data",
-  },
-  {
-    title: "Voting Trends",
-    description:
-      "View larger patterns in turnout, participation, and election outcomes across Indiana.",
-    href: "/trends",
-  },
+  // {
+  //   title: "Election Data",
+  //   description:
+  //     "Explore past election results and understand how different areas have voted over time.",
+  //   href: "/election-data",
+  // },
+  // {
+  //   title: "Voting Trends",
+  //   description:
+  //     "View larger patterns in turnout, participation, and election outcomes across Indiana.",
+  //   href: "/trends",
+  // },
   {
     title: "Government Offices",
     description:
