@@ -1,29 +1,29 @@
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="/" className="text-lg font-bold tracking-tight text-neutral-950">
-          Indy Voter Compass
+    <header className="ivc-navbar">
+      <div className="ivc-container flex items-center justify-between py-4">
+        <a href="/" className="ivc-logo text-lg">
+          Indy <span className="ivc-logo-accent">Voter Compass</span>
         </a>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-neutral-600 md:flex">
-          <a href="/election-data" className="transition hover:text-neutral-950">
+        <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
+          <a href="/election-data" className="ivc-nav-link">
             Election Data
           </a>
-          <a href="/trends" className="transition hover:text-neutral-950">
+          <a href="/trends" className="ivc-nav-link">
             Voting Trends
           </a>
-          <a href="/offices" className="transition hover:text-neutral-950">
+          <a href="/offices" className="ivc-nav-link">
             Offices
           </a>
-          <a href="/about" className="transition hover:text-neutral-950">
+          <a href="/about" className="ivc-nav-link">
             About
           </a>
         </nav>
 
         <a
           href="#address-lookup"
-          className="hidden rounded-full bg-neutral-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-neutral-800 md:inline-flex"
+          className="ivc-button-yellow hidden px-4 py-2 text-sm md:inline-flex"
         >
           Find My Ballot
         </a>
