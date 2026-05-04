@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-stone-50 text-neutral-950">
+    <main className="ivc-page-bg min-h-screen text-neutral-950">
       <Navbar />
       <HeroSection />
       <TrustCards />

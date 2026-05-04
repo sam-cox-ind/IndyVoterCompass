@@ -16,16 +16,17 @@ const trustCards = [
   },
 ];
 
+const badgeClasses = ["ivc-badge-blue", "ivc-badge-yellow", "ivc-badge-dark"];
+
 export default function TrustCards() {
   return (
-    <section className="border-y border-neutral-200 bg-white">
-      <div className="mx-auto grid max-w-6xl gap-4 px-6 py-10 md:grid-cols-3">
-        {trustCards.map((card) => (
-          <div
-            key={card.title}
-            className="rounded-2xl border border-neutral-200 bg-stone-50 p-6"
-          >
-            <h3 className="text-lg font-semibold tracking-tight text-neutral-950">
+    <section className="ivc-section-white border-y border-neutral-200">
+      <div className="ivc-container grid gap-4 py-10 md:grid-cols-3">
+        {trustCards.map((card, index) => (
+          <div key={card.title} className="ivc-card-soft p-6">
+            <span className={badgeClasses[index]}>{index + 1}</span>
+
+            <h3 className="mt-4 text-lg font-semibold tracking-tight text-neutral-950">
               {card.title}
             </h3>
 

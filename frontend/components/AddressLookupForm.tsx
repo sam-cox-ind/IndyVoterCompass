@@ -1,108 +1,50 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function AddressLookupForm() {
-  const router = useRouter();
+  const [address, setAddress] = useState("");
 
-  const [street, setStreet] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("IN");
-  const [zip, setZip] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setError("");
-
-    if (!street.trim() || !city.trim() || !state.trim() || !zip.trim()) {
-      setError("Please fill out all address fields.");
+    if (!address.trim()) {
       return;
     }
 
-    setLoading(true);
+    const encodedAddress = encodeURIComponent(address.trim());
 
-    const params = new URLSearchParams({
-      street: street.trim(),
-      city: city.trim(),
-      state: state.trim(),
-      zip: zip.trim(),
-    });
-
-    router.push(`/ballot?${params.toString()}`);
+    window.location.href = `/ballot?address=${encodedAddress}`;
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="street" className="input-label">
-          Street address
+        <label
+          htmlFor="address"
+          className="mb-2 block text-sm font-semibold text-neutral-800"
+        >
+          Home address
         </label>
+
         <input
-          id="street"
+          id="address"
+          name="address"
           type="text"
-          placeholder="123 Main St"
-          value={street}
-          onChange={(e) => setStreet(e.target.value)}
-          className="input-field"
+          value={address}
+          onChange={(event) => setAddress(event.target.value)}
+          placeholder="123 Main St, Indianapolis, IN"
+          className="w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-950 outline-none transition placeholder:text-neutral-400 focus:border-blue-700 focus:ring-4 focus:ring-blue-100"
         />
       </div>
 
-      <div className="grid gap-4 md:grid-cols-[1fr_110px_140px]">
-        <div>
-          <label htmlFor="city" className="input-label">
-            City
-          </label>
-          <input
-            id="city"
-            type="text"
-            placeholder="Indianapolis"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            className="input-field"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="state" className="input-label">
-            State
-          </label>
-          <input
-            id="state"
-            type="text"
-            placeholder="IN"
-            value={state}
-            onChange={(e) => setState(e.target.value.toUpperCase())}
-            maxLength={2}
-            className="input-field"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="zip" className="input-label">
-            ZIP
-          </label>
-          <input
-            id="zip"
-            type="text"
-            placeholder="46204"
-            value={zip}
-            onChange={(e) => setZip(e.target.value)}
-            className="input-field"
-          />
-        </div>
-      </div>
-
-      {error ? <p className="text-sm font-medium text-red-600">{error}</p> : null}
-
-      <button type="submit" disabled={loading} className="primary-button w-full">
-        {loading ? "Loading your ballot..." : "See My Ballot"}
+      <button type="submit" className="ivc-button-primary w-full px-5 py-3 text-sm">
+        Find My Ballot
       </button>
 
-      <p className="fine-print">
-        This is an early version of the lookup flow. 
+      <p className="text-xs leading-5 text-neutral-500">
+        This will eventually connect to your address lookup and ballot data
+        feature.
       </p>
     </form>
   );
